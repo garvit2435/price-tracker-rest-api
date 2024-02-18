@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --reload
+    volumes:
+      - ./app:/app/app
+      - ./main.py:/app/main.py
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres.mxvxmwrtooayzzncbstz:Garvit99284@aws-0-us-west-1.pooler.supabase.com:5432/postgres
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres.mxvxmwrtooayzzncbstz
+      POSTGRES_PASSWORD: Garvit99284
+      POSTGRES_DB: postgres
+
+volumes:
+  postgres_data:

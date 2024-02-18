@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+databases
+sqlalchemy
+aioredis
+python-binance
+pyjwt
+python-dotenv
+alembic
+psycopg2-binary
+email-validator
+fastapi-mail
+
